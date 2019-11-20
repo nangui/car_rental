@@ -1,0 +1,255 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+$blue-color: #2196f3;
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #86939e;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    padding-right: 0!important;
+    background-color: #ecf0f5!important;
+}
+
+.img-logo {
+    width: 80px;
+}
+
+.blue {
+    background-color: $blue-color!important;
+}
+
+.blue.accent-3 {
+    background-color: darken($blue-color, 40%)!important;
+}
+
+.indigo {
+    background-color: #3f51b5!important;
+}
+
+.indigo.lighten-2 {
+    background-color: #7986cb!important;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+[data-bg-repeat=false] {
+    background-repeat: no-repeat!important;
+}
+
+[data-bg-position=center] {
+    background-position: center!important;
+}
+
+[data-bg-position=left-center] {
+    background-position: left center!important;
+}
+
+[data-bg-position=center-left] {
+    background-position: center left!important;
+}
+
+[data-bg-image=true] {
+    background-image: url("./images/toyota-camry.png");
+}
+
+[data-bg-cover=cover] {
+    background-size: cover;
+}
+
+[data-animation=background-animation] {
+    will-change: background-position;
+    transition: all 1s ease-in-out;
+    animation: background-animation 1.5s ease-in-out forwards;
+}
+
+[data-animation=text-ease-in] {
+    will-change: opacity;
+    transition: all 1s ease-in;
+    opacity: 0;
+    animation: text-entrance 1s ease-in forwards;
+}
+
+[data-opacity=huit] {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+@keyframes text-entrance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes background-animation {
+    from {
+        background-position-x: 0;
+        background-position-y: 0;
+        -ms-background-position-x: 0;
+        -ms-background-position-y: 0;
+    }
+
+    to {
+        background-position-x: 50%;
+        background-position-y: 50%;
+        -ms-background-position-x: 50%;
+        -ms-background-position-y: 50%;
+    }
+}
+
+.navbar-toggler {
+    font-size: inherit;
+    padding: 0.25rem 0.25rem;
+}
+
+.small,
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+input:focus,
+select:focus {
+    box-shadow: none;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    grid-gap: 8px;
+}
+
+#app {
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+
+    .parallel {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .img-logo {
+        width: 130px;
+        height: 55px;
+    }
+
+    .p-5 {
+        padding: 3rem!important;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: .2px;
+        line-height: 30px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+    .form-control-lg {
+        border: 2px solid #e1e8ee;
+        border-radius: 5px;
+        color: #43484d;
+        font-size: 14px;
+        height: 50px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .form-group.has-icon {
+        input {
+            padding-left: 50px;
+        }
+
+        .position-relative i {
+            font-size: 14px;
+            position: absolute;
+            top: 25px;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
