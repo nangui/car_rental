@@ -25,53 +25,91 @@
         </style>
     </head>
     <body>
-        <div class="d-none d-sm-block">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center my-sm-4 my-1">
-                        <span class="text-dark font-weight-bolder pl-3">Appelez-nous:</span><span class="ml-2 mr-3 font-weight-bolder mb-2 mb-sm-0"> (+221) 776816079</span>
-                        <span class="text-dark font-weight-bolder">E-mail:</span><span class="text-primary btn-link ml-2 font-weight-bolder">adonainangui03@gmail.com</span>
+        <div class='top-header-wrapper float-left w-100'>
+            <div class="container">
+                <div class="x_top_header_left_side_wrapper">
+                    <p>Appelez-nous : (+221) 77 672 1546</p>
+                </div>
+                <div class="x_top_header_right_side_wrapper">
+                    <div class="div x_top_header_social_icon_wrapper ml-3">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-twitter-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-square"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="x_top_header_all_select_box_wrapper">
+                        <ul>
+                            <li>
+                                <a href=" {{ route('login') }} ">
+                                    <i class="fas fa-power-off"></i>
+                                    &nbsp;&nbsp;Login
+                                </a>
+                            </li>
+                            <li>
+                                <a href=" {{ route('register') }} ">
+                                    <i class="fas fa-plus-circle"></i>
+                                    &nbsp;&nbsp;Register
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                SAMA AUTO
-            </a>
-            <button class="navbar-toggler rounded-0 border-primary" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link text-uppercase" href="#about">A propos de nous <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#services">Nos services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#offers">Offres du moment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#offers">Notre equipe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#partners">Ils nous font confiance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#contacts">Nous contacter</a>
-                    </li>
-                    <li class="nav-item ml-sm-5">
-                        <a class="mt-n1 nav-link text-uppercase btn btn-primary rounded-0 shadow-sm text-white" href="{{ route('login') }}">Se connecter</a>
-                    </li>
-                    <li class="nav-item ml-sm-1">
-                        <a class="mt-n1 nav-link text-uppercase btn btn-outline-primary rounded-0 shadow-sm" href="{{ route('register') }}">Creer un compte</a>
-                    </li>
-                </ul>
+        <div class="main-navigation-header-wrapper" style="margin-top: 3.2rem;">
+            <div class="container">
+                <row>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="logo-wrapper d-none d-sm-none d-xs-none d-md-block">
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                <span style="color: #4f5dec;">SAMA</span> AUTO
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                        <div class="navi-cart-wrapper d-none d-sm-none d-xs-none d-md-block d-lg-block d-xl-block">
+                            <div class="dropdown-wrapper menu-button menu-button-end">
+                                <a href="#" class="menu-button">
+                                    <span style="position: relative; opacity: 0;">&nbsp;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <nav class="main-menu d-none d-sm-none d-xs-none d-md-block">
+                            <ul>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Accueil</a>
+                                </li>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Consulter Annonces</a>
+                                </li>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Pourquoi nous?</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </row>
             </div>
-        </nav>
+        </div>
+        
         <div class="w-100" style="height: 75vh; background: url({{ asset('images/toyota-camry.png') }})"
              data-bg-repeat='false' data-bg-cover="true" data-bg-position="center-left" data-animation="background-animation">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center align-items-sm-start" data-opacity="huit">
