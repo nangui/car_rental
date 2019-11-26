@@ -18,7 +18,8 @@
         <link href="{{ asset('animate.css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
         <style>
-            .navbar-brand {
+            .navbar-brand,
+            .title {
                 font-family: 'Lobster', cursive;
                 font-size: 24px;
             }
@@ -110,17 +111,19 @@
             </div>
         </div>
         
-        <div class="w-100" style="height: 75vh; background: url({{ asset('images/toyota-camry.png') }})"
+        <div class="header w-100" style="height: 100vh; background: url({{ asset('images/slider2.jpg') }})"
              data-bg-repeat='false' data-bg-cover="true" data-bg-position="center-left" data-animation="background-animation">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center align-items-sm-start" data-opacity="huit">
                <div class="col-12 col-md-4 pl-5 d-flex flex-column justify-content-center">
-                   <h1 data-animation='text-ease-in'>Bienvenue sur votre platforme</h1>
-                   <p data-animation='text-ease-in'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                   <h1 class='title-site animated fadeInLeft text-uppercase'>Bienvenue sur votre <span class="title" style="font-size: 32px;"><span style="color: #4f5dec;">SAMA</span> auto</span>
+                     <br /> votre destination preferee </h1>
+                   <p data-animation='animated bounceInUp'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                        laboris nisi ut aliquip ex ea commodo consequat.</p>
                </div>
             </div>
         </div>
+        
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10">
@@ -152,6 +155,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="grid-4 w-100 bg-white">
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">SUPPORT 24h/24, 7j/7</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Lot de location</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Reservation</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Location de voiture</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+        </div>
+
         <div class="container my-3">
             <div class="row">
                 <div class="col-12 col-md-12">
