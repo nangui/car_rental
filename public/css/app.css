@@ -11392,6 +11392,10 @@ select:focus {
   text-transform: uppercase;
 }
 
+.mt-32 {
+  margin-top: 3.2rem;
+}
+
 .main-navigation-header-wrapper {
   position: fixed;
   background: #ffffff;

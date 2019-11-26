@@ -26,7 +26,7 @@
         </style>
     </head>
     <body>
-        <div class='top-header-wrapper float-left w-100'>
+        <div class='fixed-top top-header-wrapper float-left w-100'>
             <div class="container">
                 <div class="x_top_header_left_side_wrapper">
                     <p>Appelez-nous : (+221) 77 672 1546</p>
@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="main-navigation-header-wrapper" style="margin-top: 3.2rem;">
+        <div class="main-navigation-header-wrapper mt-32" style="z-index: 1050;">
             <div class="container">
                 <row>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
