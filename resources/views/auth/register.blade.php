@@ -25,8 +25,8 @@
     <div class="row">
         <div class="col-md-3 col-12 bg-white">
             <div class="p-5">
-                <h3>{{ __('Login') }}</h3>
-                <p>Vieullez vous connecter pour pouvoir continuer</p>
+                <h3>{{ __('Formulaire de creation de compte') }}</h3>
+                <p>Vieullez creer un compte </p>
                 <form method="post" action="{{ route('register') }}">
                     @csrf
                     <div class="form-group has-icon">

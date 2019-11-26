@@ -10,27 +10,34 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('animate.css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
+        <style>
+            .navbar-brand {
+                font-family: 'Lobster', cursive;
+                font-size: 24px;
+            }
+        </style>
     </head>
     <body>
-        <div class="container d-none d-sm-block">
+        <div class="d-none d-sm-block">
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center my-sm-4 my-1">
-                        <span class="text-dark font-weight-bolder">Appelez-nous:</span><span class="ml-2 mr-3 font-weight-bolder mb-2 mb-sm-0"> (+221) 776816079</span>
+                        <span class="text-dark font-weight-bolder pl-3">Appelez-nous:</span><span class="ml-2 mr-3 font-weight-bolder mb-2 mb-sm-0"> (+221) 776816079</span>
                         <span class="text-dark font-weight-bolder">E-mail:</span><span class="text-primary btn-link ml-2 font-weight-bolder">adonainangui03@gmail.com</span>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="container navbar navbar-expand-sm navbar-light bg-transparent">
+        <nav class="navbar navbar-expand-sm navbar-light bg-transparent">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img class="img-fluid img-logo" src="{{ asset('images/toyota-camry.png') }}" />
+                SAMA AUTO
             </a>
             <button class="navbar-toggler rounded-0 border-primary" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,6 +62,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#contacts">Nous contacter</a>
+                    </li>
+                    <li class="nav-item ml-sm-5">
+                        <a class="mt-n1 nav-link text-uppercase btn btn-primary rounded-0 shadow-sm text-white" href="{{ route('login') }}">Se connecter</a>
+                    </li>
+                    <li class="nav-item ml-sm-1">
+                        <a class="mt-n1 nav-link text-uppercase btn btn-outline-primary rounded-0 shadow-sm" href="{{ route('register') }}">Creer un compte</a>
                     </li>
                 </ul>
             </div>
