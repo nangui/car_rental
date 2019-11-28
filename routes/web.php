@@ -24,41 +24,38 @@ Route::prefix('settings')->middleware(['auth'])->group(function () {
 });
 
 Route::prefix('carburants')->group(function () {
-    
+
 });
 
 Route::prefix('users')->group(function () {
-    
+
 });
 
 Route::prefix('carburants')->group(function () {
-    
+
 });
 
 Route::prefix('voitures')->group(function () {
-    
+    Route::get('/', 'VoitureController@create')->name('addCar');
+    Route::post('/', 'VoitureController@store')->name('saveCar');
 });
 
 Route::prefix('constructeurs')->group(function () {
-    
+
 });
 
 Route::prefix('marques')->group(function () {
-    
+
 });
 
 Route::prefix('modeles')->group(function () {
-    
-});
 
-Route::prefix('annonces')->group(function () {
-    
 });
 
 Route::prefix('transmissions')->group(function () {
-    
+
 });
 
 Route::prefix('carosseries')->group(function () {
-    
+
 });

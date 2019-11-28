@@ -30,6 +30,7 @@ class CreateVoituresTable extends Migration
             $table->integer('customs_clearance');
             $table->string('chassis_number');
             $table->integer('liter');
+            $table->string('image');
             $table->foreign('annonce_id')->references('id')->on('annonces')->onDelete('cascade');
             $table->foreign('modele_id')->references('id')->on('modeles')->onDelete('cascade');
             $table->foreign('carburant_id')->references('id')->on('carburants')->onDelete('cascade');

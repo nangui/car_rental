@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Car Rental</title>
+        <title> {{ $setting->site_name }} </title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,12 +35,12 @@
                     <div class="div x_top_header_social_icon_wrapper ml-3">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ $setting->site_facebook }}">
                                     <i class="fab fa-facebook-square"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ $setting->site_twitter }}">
                                     <i class="fab fa-twitter-square"></i>
                                 </a>
                             </li>
@@ -58,6 +58,7 @@
                     </div>
                     <div class="x_top_header_all_select_box_wrapper">
                         <ul>
+                            @guest
                             <li>
                                 <a href=" {{ route('login') }} ">
                                     <i class="fas fa-power-off"></i>
@@ -70,6 +71,19 @@
                                     &nbsp;&nbsp;Register
                                 </a>
                             </li>
+                            @else
+                            <li>
+                                <a href=" {{ url('/home') }} ">
+                                    <i class="fas fa-user"></i>
+                                    &nbsp;&nbsp;Mon Espace perso
+                                </a>
+                            </li>
+                            <li>
+                                <a class="border px-3 py-2 rounded" href=" {{ route('addCar') }} ">
+                                    &nbsp;&nbsp;Publier une annonce
+                                </a>
+                            </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -110,20 +124,18 @@
                 </row>
             </div>
         </div>
-        
+
         <div class="header w-100" style="height: 100vh; background: url({{ asset('images/slider2.jpg') }})"
              data-bg-repeat='false' data-bg-cover="true" data-bg-position="center-left" data-animation="background-animation">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center align-items-sm-start" data-opacity="huit">
                <div class="col-12 col-md-4 pl-5 d-flex flex-column justify-content-center">
                    <h1 class='title-site animated fadeInLeft text-uppercase'>Bienvenue sur votre <span class="title" style="font-size: 32px;"><span style="color: #4f5dec;">SAMA</span> auto</span>
                      <br /> votre destination preferee </h1>
-                   <p data-animation='animated bounceInUp'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                       laboris nisi ut aliquip ex ea commodo consequat.</p>
+                   <p data-animation='animated bounceInUp'>{{ $setting->site_slogan }}.</p>
                </div>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10">

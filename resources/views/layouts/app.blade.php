@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-        <header class="indigo lighten-2 position-relative">
+        <header class="position-relative" style="background-color: #4f5dec;">
             <nav class="navbar navbar-expand-md navbar-light bg-transparent">
                 <div class="w-100 d-flex align-items-center justify-content-between">
                     <a class="navbar-brand text-white" href="{{ url('/') }}">

@@ -24,7 +24,7 @@ class VoitureController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.add');
     }
 
     /**
@@ -35,7 +35,7 @@ class VoitureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
