@@ -7,20 +7,33 @@
 <div class="container mt-n5">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <div class="w-100">
+                @if ($errors->any() === 0)
+                    <div class="py-2 alert alert-danger">
+                        @foreach ($errors->all() as $item)
+                            {{ $item }},
+                        @endforeach
+                    </div>
+                @else
+                    @isset ($message)
+                        <div class="py-2 alert alert-success">{{ $message }}</div>
+                    @endif
+                @endif
+            </div>
             <div class="animated fadeInUp" id="card-container">
                 <div class="card rounded-0 bg-white">
                     <div class="card-header bg-white border-0">
-                        <h6>Voitures <span class="badge badge-danger float-right">64</span></h6>
+                        <h6>Annonces <span class="badge badge-danger float-right">
+                            {{$count_annonces ?? ''}}
+                        </span></h6>
                     </div>
                     <div class="card-body border-0">
                         <div class="d-flex justify-content-between mt-2">
                             <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
                             </div>
                             <div class="d-flex align-items-end">
                                 <div class="btn-group float-right">
-                                    <a class="btn btn-sm btn-outline-primary" href="">
+                                <a class="btn btn-sm btn-outline-primary" href="{{ route('addCar') }}">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
@@ -33,17 +46,86 @@
                 </div>
                 <div class="card rounded-0 bg-white">
                     <div class="card-header bg-white border-0">
-                        <h6>Marques <span class="badge badge-primary float-right">28</span></h6>
+                        <h6>Marques <span class="badge badge-primary float-right">
+                            {{$count_marques ?? ''}}    
+                        </span></h6>
                     </div>
                     <div class="card-body border-0">
                         <div class="d-flex justify-content-between mt-2">
                             <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
                             </div>
                             <div class="d-flex align-items-end">
                                 <div class="btn-group float-right">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#marqueModal">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                <a class="btn btn-sm btn-outline-primary" href="{{ route('listMarques') }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card rounded-0 bg-white">
+                    <div class="card-header bg-white border-0">
+                        <h6>Modeles <span class="badge badge-danger float-right">
+                            {{$count_modeles ?? ''}}    
+                        </span></h6>
+                    </div>
+                    <div class="card-body border-0">
+                        <div class="d-flex justify-content-between mt-2">
+                            <div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="btn-group float-right">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#modeleModal">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if(Auth::user()->account->is_admin)
+                <div class="card rounded-0 bg-white">
+                    <div class="card-header bg-white border-0">
+                        <h6>Comptes <span class="badge badge-danger float-right">
+                            {{$count_comptes ?? ''}}    
+                        </span></h6>
+                    </div>
+                    <div class="card-body border-0">
+                        <div class="d-flex justify-content-between mt-2">
+                            <div></div>
+                            <div class="d-flex align-items-end">
+                                <div class="btn-group float-right">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#accountModal">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                    <a class="btn btn-sm btn-outline-primary" href="">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                <div class="card rounded-0 bg-white">
+                    <div class="card-header bg-white border-0">
+                        <h6>Carosseries <span class="badge badge-danger float-right">
+                            {{$count_carosseries ?? ''}}    
+                        </span></h6>
+                    </div>
+                    <div class="card-body border-0">
+                        <div class="d-flex justify-content-between mt-2">
+                            <div></div>
+                            <div class="d-flex align-items-end">
+                                <div class="btn-group float-right">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#carosserieModal">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
@@ -56,17 +138,16 @@
                 </div>
                 <div class="card rounded-0 bg-white">
                     <div class="card-header bg-white border-0">
-                        <h6>Modeles <span class="badge badge-danger float-right">51</span></h6>
+                        <h6>Transmission <span class="badge badge-danger float-right">
+                            {{$count_transmissions ?? ''}}    
+                        </span></h6>
                     </div>
                     <div class="card-body border-0">
                         <div class="d-flex justify-content-between mt-2">
-                            <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
-                            </div>
+                            <div></div>
                             <div class="d-flex align-items-end">
                                 <div class="btn-group float-right">
-                                    <a class="btn btn-sm btn-outline-primary" href="">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#transmissionModal">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
@@ -79,17 +160,16 @@
                 </div>
                 <div class="card rounded-0 bg-white">
                     <div class="card-header bg-white border-0">
-                        <h6>Comptes <span class="badge badge-danger float-right">21</span></h6>
+                        <h6>Carburant <span class="badge badge-danger float-right">
+                            {{$count_carburants ?? ''}}    
+                        </span></h6>
                     </div>
                     <div class="card-body border-0">
                         <div class="d-flex justify-content-between mt-2">
-                            <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
-                            </div>
+                            <div></div>
                             <div class="d-flex align-items-end">
                                 <div class="btn-group float-right">
-                                    <a class="btn btn-sm btn-outline-primary" href="">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#carburantModal">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
@@ -102,40 +182,16 @@
                 </div>
                 <div class="card rounded-0 bg-white">
                     <div class="card-header bg-white border-0">
-                        <h6>Annonces <span class="badge badge-danger float-right">31</span></h6>
+                        <h6>Constructeur <span class="badge badge-danger float-right">
+                            {{$count_constructeurs ?? ''}}    
+                        </span></h6>
                     </div>
                     <div class="card-body border-0">
                         <div class="d-flex justify-content-between mt-2">
-                            <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
-                            </div>
+                            <div></div>
                             <div class="d-flex align-items-end">
                                 <div class="btn-group float-right">
-                                    <a class="btn btn-sm btn-outline-primary" href="">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                    <a class="btn btn-sm btn-outline-primary" href="">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card rounded-0 bg-white">
-                    <div class="card-header bg-white border-0">
-                        <h6>Modeles <span class="badge badge-danger float-right">51</span></h6>
-                    </div>
-                    <div class="card-body border-0">
-                        <div class="d-flex justify-content-between mt-2">
-                            <div>
-                                <i class="fas fa-car fa-2x"></i>
-                                <h4>400</h4>
-                            </div>
-                            <div class="d-flex align-items-end">
-                                <div class="btn-group float-right">
-                                    <a class="btn btn-sm btn-outline-primary" href="">
+                                    <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#constructeurModal">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                     <a class="btn btn-sm btn-outline-primary" href="">
@@ -229,4 +285,10 @@
         @endif
     </div>
 </div>
+@include('modals.modele')
+@include('modals.marque')
+@include('modals.carburant')
+@include('modals.carosserie')
+@include('modals.transmission')
+@include('modals.constructeur')
 @endsection

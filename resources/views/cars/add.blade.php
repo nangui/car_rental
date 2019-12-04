@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group w-50">
                                 <label for="title-annonce">Description</label>
-                                <textarea cols="5" rows="4" class="form-control" placeholder="Entrer la description"></textarea>
+                                <textarea cols="5" name="description" rows="4" class="form-control" placeholder="Entrer la description"></textarea>
                             </div>
                             <div class="form-group w-25">
                                 <label for="price-annonce">Prix (F CFA)</label>
@@ -76,29 +76,28 @@
                                 <div class="form-group">
                                     <label for="custom_clearance">Choisir le type de carburant</label>
                                     <select name="carburant_id" class="custom-select">
-                                        <option value="">Essence</option>
-                                        <option value="">Gazoil</option>
-                                        <option value="">Electrique</option>
+                                        <option value="essence">Essence</option>
+                                        <option value="gazoil">Gazoil</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="custom_clearance">Choix du constructeur</label>
                                     <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="constructeur_id" id="constructeur_id" placeholder="Entrer l">
+                                        <input class="form-control pr-4 rounded" type="text" name="constructeur_id" id="constructeur_id" placeholder="Constructeur">
                                         <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="custom_clearance">Choix de la transmission</label>
                                     <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="transmission_id" id="transmission_id" placeholder="Entrer l">
+                                        <input class="form-control pr-4 rounded" type="text" name="transmission_id" id="transmission_id" placeholder="Transmission">
                                         <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="custom_clearance">Carosserie</label>
                                     <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="carosserie_id" id="carosserie_id" placeholder="Entrer l">
+                                        <input class="form-control pr-4 rounded" type="text" name="carosserie_id" id="carosserie_id" placeholder="Carosserie">
                                         <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
                                     </div>
                                 </div>

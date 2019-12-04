@@ -14,7 +14,7 @@ class MarqueController extends Controller
      */
     public function index()
     {
-        //
+        return view('marques.index', ['marques' => Marque::paginate(5)]);
     }
 
     /**
@@ -35,7 +35,11 @@ class MarqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['libelle' => 'required|unique:marques']);
+
+        Marque::create(['libelle' => $request->libelle]);
+
+        return redirect()->back()->with('message', 'La marque a bien ete enregistree');
     }
 
     /**
@@ -46,7 +50,8 @@ class MarqueController extends Controller
      */
     public function show(Marque $marque)
     {
-        //
+        dd($marque);
+        return view('marque.show', ['marque' => Marque::find($marque)]);
     }
 
     /**

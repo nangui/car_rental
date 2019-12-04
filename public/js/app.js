@@ -36922,7 +36922,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var scrollpos = window.scrollY;
 var header = document.querySelector(".main-navigation-header-wrapper");
-var header_height = header.offsetHeight;
+var header_height = header.offsetHeight; // const header_height = header ? header.offsetHeight : "";
 
 var add_class_on_scroll = function add_class_on_scroll() {
   return header.classList.add("mt-32");
@@ -36932,7 +36932,7 @@ var remove_class_on_scroll = function remove_class_on_scroll() {
   return header.classList.remove("mt-32");
 };
 
-window.addEventListener('scroll', function () {
+window.addEventListener("scroll", function () {
   scrollpos = window.scrollY;
 
   if (scrollpos < header_height) {
