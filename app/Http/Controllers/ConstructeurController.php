@@ -35,7 +35,15 @@ class ConstructeurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required|unique:constructeurs'
+        ]);
+
+        Constructeur::create([
+            'libelle' => $request->libelle
+        ]);
+
+        return redirect()->back()->with('message', 'Le constructeur a bien ete enregistree');
     }
 
     /**

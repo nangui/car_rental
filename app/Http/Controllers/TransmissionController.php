@@ -35,7 +35,15 @@ class TransmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required|unique:transmissions'
+        ]);
+
+        Transmission::create([
+            'libelle' => $request->libelle
+        ]);
+
+        return redirect()->back()->with('message', 'Le type de transmission a bien ete enregistree');
     }
 
     /**

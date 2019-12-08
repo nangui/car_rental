@@ -8,15 +8,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="w-100">
-                @if ($errors->any() === 0)
-                    <div class="py-2 alert alert-danger">
+                @if ($errors->any())
+                    <div class="py-2 alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
                         @foreach ($errors->all() as $item)
-                            {{ $item }},
+                            <li>{{ $item }}</li>
                         @endforeach
+                        </ul>
                     </div>
                 @else
-                    @isset ($message)
-                        <div class="py-2 alert alert-success">{{ $message }}</div>
+                    @if (session('message'))
+                        <div class="py-2 pl-2 alert alert-success">{{ session('message') }}</div>
                     @endif
                 @endif
             </div>

@@ -11,8 +11,10 @@
       <div class="modal-body">
         <form method="POST" action="{{ route('addMarque') }}">
           @csrf
-          <label for="marque_libelle">Nom de la marque</label>
-          <input type="text" name="libelle" class="form-control" id="marque_libelle">
+          <div class="form-group">
+            <label for="marque_libelle">Nom de la marque</label>
+            <input type="text" name="libelle" class="form-control" id="marque_libelle">
+          </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-success" id="submit_marque">Enregistrer</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

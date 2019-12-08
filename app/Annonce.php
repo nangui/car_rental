@@ -20,4 +20,15 @@ class Annonce extends Model
     {
         return $this->belongsTo('App\Compte');
     }
+
+    /**
+     * Cette fonction permet de recuperer la
+     * carosserie
+     * 
+     * @return App\Carosserie
+     */
+    public function carosserie()
+    {
+        return $this->belongsTo('App\Carosserie');
+    }
 }

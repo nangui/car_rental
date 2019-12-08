@@ -23,11 +23,11 @@ Route::prefix('settings')->middleware(['auth'])->group(function () {
     Route::post('/', 'SettingController@update');
 });
 
-Route::prefix('carburants')->group(function () { });
-
 Route::prefix('users')->group(function () { });
 
-Route::prefix('carburants')->group(function () { });
+Route::prefix('carburants')->group(function () {
+    Route::post('/', 'CarburantController@store')->name('addCarburant');
+});
 
 Route::prefix('voitures')->group(function () {
     Route::get('/', 'VoitureController@create')->name('addCar');
@@ -35,7 +35,7 @@ Route::prefix('voitures')->group(function () {
 });
 
 Route::prefix('constructeurs')->group(function () {
-    Route::post('/', 'ContructeurController@store')->name('addMarque');
+    Route::post('/', 'ConstructeurController@store')->name('addConstructeur');
 });
 
 Route::prefix('marques')->group(function () {

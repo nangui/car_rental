@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Annonce;
+use App\Carburant;
+use App\Carosserie;
+use App\Constructeur;
+use App\Modele;
+use App\Transmission;
 use App\Voiture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +23,7 @@ class VoitureController extends Controller
      */
     public function index()
     {
-        //
+        return view('cards.index');
     }
 
     /**
@@ -28,7 +33,25 @@ class VoitureController extends Controller
      */
     public function create()
     {
-        return view('cars.add');
+        $modeles = Modele::all();
+        $carburants = Carburant::all();
+        $construteurs = Constructeur::all();
+        $transmissions = Transmission::all();
+        $carosseries = Carosserie::all();
+
+        if (
+            empty($modeles) || empty($carburants) || empty($construteurs)
+            || empty($transmissions) || empty($carosseries)
+        ) {
+            return redirect()->back()->with('messages', 'Vieullez enregistrer toutes les dependances (modeles, marques, carosseries, constructeurs, carburants, transmissions)');
+        }
+
+        return view('cars.add')
+            ->with('modeles', $modeles)
+            ->with('carburants', $carburants)
+            ->with('constructeurs', $construteurs)
+            ->with('transmissions', $transmissions)
+            ->with('carosseries', $carosseries);
     }
 
     /**
@@ -60,9 +83,7 @@ class VoitureController extends Controller
             ]
         );
 
-        dd($request);
-
-        DB::transaction(function () {
+        DB::transaction(function () use ($request) {
 
             $annonce = Annonce::create([
                 'title' => $request->title,
@@ -77,7 +98,11 @@ class VoitureController extends Controller
             }
 
             Voiture::create([
+                'annonce_id' => $annonce->id,
+                'year' => $request->input('year'),
                 'mileage' => $request->input('mileage'),
+                'state' => 0,
+                'customs_clearance' => $request->input('custom_clearance'),
                 'color' => $request->input('color'),
                 'cylinder' => $request->input('cylinder'),
                 'number_of_horses' => $request->input('number_of_horses'),
@@ -86,12 +111,14 @@ class VoitureController extends Controller
                 'liter' => $request->input('liter'),
                 'modele_id' => $request->input('modele_id'),
                 'carburant_id' => $request->input('carburant_id'),
-                'constructeur_id' => $reauest->input('constructeur_id'),
+                'constructeur_id' => $request->input('constructeur_id'),
                 'transmission_id' => $request->input('transmission_id'),
                 'carosserie_id' => $request->input('carosserie_id'),
                 'image' => $file,
             ]);
         });
+
+        return redirect()->back()->with('message', 'Annonce bien enregistre');
     }
 
     /**

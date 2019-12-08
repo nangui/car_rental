@@ -27,7 +27,7 @@ class CreateVoituresTable extends Migration
             $table->string('color');
             $table->string('cylinder');
             $table->integer('number_of_horses');
-            $table->integer('customs_clearance');
+            $table->dateTime('customs_clearance');
             $table->string('chassis_number');
             $table->integer('liter');
             $table->string('image');

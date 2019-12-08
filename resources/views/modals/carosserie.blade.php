@@ -9,11 +9,17 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <form method="POST" action="{{ route('addCarosserie') }}">
+          @csrf
+          <div class="form-group">
+            <label for="carosserie_libelle">Type de la carosserie</label>
+            <input type="text" name="libelle" class="form-control" id="carosserie_libelle">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

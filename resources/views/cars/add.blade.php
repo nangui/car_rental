@@ -7,6 +7,24 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <div class="w-100">
+                @if ($errors->any())
+                    <div class="py-2 alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                        @foreach ($errors->all() as $item)
+                            <li>{{ $item }}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                @else
+                    @if (session('message'))
+                        <div class="py-2 pl-2 alert alert-success">{{ session('message') }}</div>
+                    @endif
+                @endif
+            </div>
             <div class="mt-3 p-3 bg-white shadow-sm">
                 <h2 class="text-center mb-3">Publier une annonce</h2>
                 <div>
@@ -68,38 +86,48 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="custom_clearance">Choix du modele</label>
-                                    <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="modele_id" id="modele_id" placeholder="Entrer le modele">
-                                        <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="custom_clearance">Choisir le type de carburant</label>
-                                    <select name="carburant_id" class="custom-select">
-                                        <option value="essence">Essence</option>
-                                        <option value="gazoil">Gazoil</option>
+                                    <select class="custom-select pr-4 rounded" name="modele_id" id="modele_id">
+                                        <option value="">-- Selectionner --</option>
+                                        @foreach ($modeles as $item)
+                                            <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="custom_clearance">Choix du constructeur</label>
-                                    <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="constructeur_id" id="constructeur_id" placeholder="Constructeur">
-                                        <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
-                                    </div>
+                                    <label for="carburant_id">Choisir le type de carburant</label>
+                                    <select class="custom-select pr-4 rounded" name="carburant_id" id="carburant_id">
+                                        <option value="">-- Selectionner --</option>
+                                        @foreach ($carburants as $item)
+                                            <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="custom_clearance">Choix de la transmission</label>
-                                    <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="transmission_id" id="transmission_id" placeholder="Transmission">
-                                        <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
-                                    </div>
+                                    <label for="constructeur_id">Choix du constructeur</label>
+                                    <select class="custom-select pr-4 rounded" name="constructeur_id" id="constructeur_id">
+                                        <option value="">-- Selectionner --</option>
+                                        @foreach ($constructeurs as $item)
+                                            <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="custom_clearance">Carosserie</label>
-                                    <div class="input-group">
-                                        <input class="form-control pr-4 rounded" type="text" name="carosserie_id" id="carosserie_id" placeholder="Carosserie">
-                                        <i class="fas fa-list position-absolute" style="top: 30%;right: 10px; cursor: pointer;"></i>
-                                    </div>
+                                    <label for="transmission_id">Choix de la transmission</label>
+                                    <select class="custom-select pr-4 rounded" name="transmission_id" id="transmission_id">
+                                        <option value="">-- Selectionner --</option>
+                                        @foreach ($transmissions as $item)
+                                            <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="carosserie_id">Type de Carosserie</label>
+                                    <select class="custom-select pr-4 rounded" name="carosserie_id" id="carosserie_id">
+                                        <option value="">-- Selectionner --</option>
+                                        @foreach ($carosseries as $item)
+                                            <option value="{{ $item->id }}">{{ $item->libelle }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </fieldset>

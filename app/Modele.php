@@ -12,4 +12,9 @@ class Modele extends Model
     {
         return $this->belongsTo('App\Marque');
     }
+
+    public function voiture()
+    {
+        return $this->hasMany('App\Voiture');
+    }
 }

@@ -35,7 +35,15 @@ class CarburantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required|unique:carburants'
+        ]);
+
+        Carburant::create([
+            'libelle' => $request->libelle
+        ]);
+
+        return redirect()->back()->with('message', 'Le type de carburant a bien ete enregistree');
     }
 
     /**

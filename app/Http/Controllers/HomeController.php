@@ -32,6 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with('count_marques', Marque::all()->count())
+            ->with('marques', Marque::all())
             ->with('count_modeles', Modele::all()->count())
             ->with('count_annonces', Annonce::all()->count())
             ->with('count_transmissions', Transmission::all()->count())

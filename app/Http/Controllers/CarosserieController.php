@@ -35,7 +35,15 @@ class CarosserieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required|unique:carosseries'
+        ]);
+
+        Carosserie::create([
+            'libelle' => $request->libelle
+        ]);
+
+        return redirect()->back()->with('message', 'Le type de carosserie a bien ete enregistree');
     }
 
     /**
