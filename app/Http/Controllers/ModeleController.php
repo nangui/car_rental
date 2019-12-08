@@ -35,7 +35,17 @@ class ModeleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required|unique:modeles',
+            'marque_id' => 'required'
+        ]);
+
+        Modele::create([
+            'libelle' => $request->libelle,
+            'marque_id' => $request->marque_id
+        ]);
+
+        return redirect()->back()->with('message', 'Le modele a bien ete enregistree');
     }
 
     /**

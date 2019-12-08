@@ -8,6 +8,7 @@ use App\Setting;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -50,5 +51,7 @@ class AppServiceProvider extends ServiceProvider
         if (Setting::all()->count() === 0) {
             Setting::create([]);
         }
+
+        View::share('setting', Setting::first());
     }
 }

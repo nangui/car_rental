@@ -19,7 +19,8 @@ class CreateAnnoncesTable extends Migration
             $table->text('description')->default('Pas de description');
             $table->double('price');
             $table->unsignedBigInteger('compte_id');
-            $table->foreign('compte_id')->references('id')->on('comptes')->onDelete('cascade');
+            $table->foreign('compte_id')
+                ->references('id')->on('comptes')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

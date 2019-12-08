@@ -4,72 +4,138 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Car Rental</title>
+        <title> {{ $setting->site_name }} </title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('animate.css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/all.css') }}" rel="stylesheet">
+        <style>
+            .navbar-brand,
+            .title {
+                font-family: 'Lobster', cursive;
+                font-size: 24px;
+            }
+        </style>
     </head>
     <body>
-        <div class="container d-none d-sm-block">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex flex-column flex-sm-row justify-content-start align-items-center my-sm-4 my-1">
-                        <span class="text-dark font-weight-bolder">Appelez-nous:</span><span class="ml-2 mr-3 font-weight-bolder mb-2 mb-sm-0"> (+221) 776816079</span>
-                        <span class="text-dark font-weight-bolder">E-mail:</span><span class="text-primary btn-link ml-2 font-weight-bolder">adonainangui03@gmail.com</span>
+        <div class='fixed-top top-header-wrapper float-left w-100'>
+            <div class="container">
+                <div class="x_top_header_left_side_wrapper">
+                    <p>Appelez-nous : (+221) 77 672 1546</p>
+                </div>
+                <div class="x_top_header_right_side_wrapper">
+                    <div class="div x_top_header_social_icon_wrapper ml-3">
+                        <ul>
+                            <li>
+                                <a href="{{ $setting->site_facebook }}">
+                                    <i class="fab fa-facebook-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ $setting->site_twitter }}">
+                                    <i class="fab fa-twitter-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-square"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="x_top_header_all_select_box_wrapper">
+                        <ul>
+                            @guest
+                            <li>
+                                <a href=" {{ route('login') }} ">
+                                    <i class="fas fa-power-off"></i>
+                                    &nbsp;&nbsp;Login
+                                </a>
+                            </li>
+                            <li>
+                                <a href=" {{ route('register') }} ">
+                                    <i class="fas fa-plus-circle"></i>
+                                    &nbsp;&nbsp;Register
+                                </a>
+                            </li>
+                            @else
+                            <li>
+                                <a href=" {{ url('/home') }} ">
+                                    <i class="fas fa-user"></i>
+                                    &nbsp;&nbsp;Mon Espace perso
+                                </a>
+                            </li>
+                            <li>
+                                <a class="border px-3 py-2 rounded" href=" {{ route('addCar') }} ">
+                                    &nbsp;&nbsp;Publier une annonce
+                                </a>
+                            </li>
+                            @endguest
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="container navbar navbar-expand-sm navbar-light bg-transparent">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img class="img-fluid img-logo" src="{{ asset('images/toyota-camry.png') }}" />
-            </a>
-            <button class="navbar-toggler rounded-0 border-primary" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link text-uppercase" href="#about">A propos de nous <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#services">Nos services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#offers">Offres du moment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#offers">Notre equipe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#partners">Ils nous font confiance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#contacts">Nous contacter</a>
-                    </li>
-                </ul>
+        <div class="main-navigation-header-wrapper mt-32" style="z-index: 1050;">
+            <div class="container">
+                <row>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                        <div class="logo-wrapper d-none d-sm-none d-xs-none d-md-block">
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                <span style="color: #4f5dec;">SAMA</span> AUTO
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+                        <div class="navi-cart-wrapper d-none d-sm-none d-xs-none d-md-block d-lg-block d-xl-block">
+                            <div class="dropdown-wrapper menu-button menu-button-end">
+                                <a href="#" class="menu-button">
+                                    <span style="position: relative; opacity: 0;">&nbsp;</span>
+                                </a>
+                            </div>
+                        </div>
+                        <nav class="main-menu d-none d-sm-none d-xs-none d-md-block">
+                            <ul>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Accueil</a>
+                                </li>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Consulter Annonces</a>
+                                </li>
+                                <li>
+                                    <a href="" class="menu-button single-menu">Pourquoi nous?</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </row>
             </div>
-        </nav>
-        <div class="w-100" style="height: 75vh; background: url({{ asset('images/toyota-camry.png') }})"
+        </div>
+
+        <div class="header w-100" style="height: 100vh; background: url({{ asset('images/slider2.jpg') }})"
              data-bg-repeat='false' data-bg-cover="true" data-bg-position="center-left" data-animation="background-animation">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center align-items-sm-start" data-opacity="huit">
                <div class="col-12 col-md-4 pl-5 d-flex flex-column justify-content-center">
-                   <h1 data-animation='text-ease-in'>Bienvenue sur votre platforme</h1>
-                   <p data-animation='text-ease-in'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                       ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                       laboris nisi ut aliquip ex ea commodo consequat.</p>
+                   <h1 class='title-site animated fadeInLeft text-uppercase'>Bienvenue sur votre <span class="title" style="font-size: 32px;"><span style="color: #4f5dec;">SAMA</span> auto</span>
+                     <br /> votre destination preferee </h1>
+                   <p data-animation='animated bounceInUp'>{{ $setting->site_slogan }}.</p>
                </div>
             </div>
         </div>
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10">
@@ -101,6 +167,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="grid-4 w-100 bg-white">
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">SUPPORT 24h/24, 7j/7</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Lot de location</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Reservation</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+            <div class="box-wrapper">
+                <h3>
+                    <a href="#" class="text-uppercase">Location de voiture</a>
+                </h3>
+                <p>Proin gravida nibh vel velit auctor
+				<br>aliquet. Aenean sollicitudin, lorem
+				<br>quis bibendum auctor.</p>
+            </div>
+        </div>
+
         <div class="container my-3">
             <div class="row">
                 <div class="col-12 col-md-12">

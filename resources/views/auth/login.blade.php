@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-3 col-12 bg-white">
             <div class="p-5">
-                <h3>{{ __('Login') }}</h3>
+                <h3>{{ __('Formulaire de connexion') }}</h3>
                 <p>Vieullez vous connecter pour pouvoir continuer</p>
                 <form method="post" action="{{ route('login') }}">
                     @csrf
